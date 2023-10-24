@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        abril: ["Abril Fatface", "serif"],
+        reem: ["Reem Kufi Ink", "sans-serif"],
+      }
+    },
   },
   plugins: [],
 }
