@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         abril: ["Abril Fatface", "serif"],
-        reem: ["Reem Kufi Ink", "sans-serif"],
+        gabarito: ["Gabarito", "sans-serif"],
       }
     },
   },
