@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5e962111e7.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Gabarito&display=swap" rel="stylesheet">
@@ -10,39 +11,58 @@
     <title>nidhi j.</title>
 </head>
 <body>
-    <div class="min-h-screen flex flex-col md:flex-row overscroll-none">
-        <div class="w-full md:w-1/2 flex flex-col bg-black items-center justify-center h-screen sticky top-0"> <!-- Sidebar -->
-            <div class="w-2/3">
-                <div class="py-4"> <!-- Name + Oneliner-->
+    <div class="min-w-screen h-min flex flex-col md:flex-row">
+        <div class="w-full h-min flex flex-col bg-black md:w-1/2 md:h-screen md:sticky md:top-0 md:items-center overflow-y-auto"> <!-- Sidebar -->
+            <div class="m-15% md:pt-5%">
+                <div class="my-10%"> <!-- Name + Oneliner-->
                     <h1 class="font-abril text-6xl text-white">nidhi jadhav</h1>
-                    <p class="font-gabarito text-2xl text-white py-4">solving the world's biggest problems using exponential technology</p>
+                    <p class="text-2xl text-white my-5%">solving the world's biggest problems using exponential technology</p>
                 </div>
-                <div> <!-- Navigation -->
-                    <h3 class="font-gabarito text-3xl text-white tracking-wide relative after:bg-white after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"><a href="#about">ABOUT</a></h3>
-                    <h3 class="font-gabarito text-3xl text-white tracking-wide relative after:bg-white after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"><a href="#projects">PROJECTS</a></h3>
-                    <h3 class="font-gabarito text-3xl text-white tracking-wide relative after:bg-white after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"><a href="#words">WORDS</a></h3>
-                    <h3 class="font-gabarito text-3xl text-white tracking-wide relative after:bg-white after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"><a href="#interests">INTERESTS</a></h3>
+                <div class="my-15%"> <!-- Navigation -->
+                    <h3 class="font-gabarito w-min text-3xl text-white tracking-wide relative after:bg-white after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"><a href="#about">ABOUT</a></h3>
+                    <h3 class="font-gabarito w-min text-3xl text-white tracking-wide relative after:bg-white after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"><a href="#projects">PROJECTS</a></h3>
+                    <h3 class="font-gabarito w-min text-3xl text-white tracking-wide relative after:bg-white after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"><a href="#words">WORDS</a></h3>
+                    <h3 class="font-gabarito w-min text-3xl text-white tracking-wide relative after:bg-white after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"><a href="#interests">INTERESTS</a></h3>
                 </div>
-            </div>
-            
+                <div class="flex"> <!-- Socials -->
+                    <a href="https://www.linkedin.com/in/nidhii-jadhav/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-400">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                    <a href="https://github.com/nidhijadhav" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-400 ml-5%">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCg6Qd0POXN5z3FWbJ6dUtTA" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-400 ml-5%">
+                        <i class="fab fa-youtube fa-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/nidhiijadhav/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-400 ml-5%">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="mailto:nidhivjadhav@gmail.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-400 ml-5%">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>  
         </div>
-        <div class="w-full md:w-1/2 flex flex-col items-center py-10 overflow-y-auto"> <!-- Main Content -->
-            <div class="w-4/5 overflow-hidden">
-                <div id="about" class="py-8">
+
+        <div class="w-full h-min flex flex-col md:w-1/2  overflow-y-auto"> <!-- Main Content -->
+            <div class="m-10% space-y-10% overflow-hidden">
+                <div id="about" class="space-y-5%">
                     <h2 class="font-abril text-4xl">about.</h2>
-                    <p class="font-gabarito text-lg py-4"> Hi, I'm Nidhi! I'm currently a second-year honors student at Northeastern Univeristy. I'm studying Computer Science with a concentration Artificial Intelligence and a minor in Math and Business. </p>
-                    <p></p>
+                    <p class="font-gabarito text-lg"> Hi! I'm Nidhi, a second-year honors student at Northeastern Univeristy. I'm currently studying <a href="https://catalog.northeastern.edu/undergraduate/computer-information-science/computer-science/bscs/#text" target="_blank" class="text-blue-500 hover:underline">Computer Science</a> with a concentration <a href="https://catalog.northeastern.edu/undergraduate/computer-information-science/computer-science/bscs/#ARIN" target="_blank" class="text-blue-500 hover:underline">Artificial Intelligence</a> and a minor in <a href="https://catalog.northeastern.edu/undergraduate/science/mathematics/mathematics-minor/" target="_blank" class="text-blue-500 hover:underline">Math</a> and <a href="https://catalog.northeastern.edu/undergraduate/business/interdisciplinary-minors/business-administration-minor/" target="_blank" class="text-blue-500 hover:underline">Business</a>.
+                    </p>
                 </div>
-                <div id="projects" class="py-8">
+                <div id="projects" class="space-y-5%">
                     <h2 class="font-abril text-4xl">projects.</h2>
                 </div>
-                <div id="words" class="py-8">
+                <div id="words" class="space-y-5%">
                     <h2 class="font-abril text-4xl">words.</h2> 
+                
                 </div>
-                <div id="interests" class="py-8">
+                <div id="interests" class="space-y-5%">
                     <h2 class="font-abril text-4xl">interests.</h2>
+                    
                 </div>
-                <p>made with &#10084 using html + tailwind css</p>
+                <p>made with &#10084 using <a href="https://github.com/nidhijadhav/nidhijadhav.github.io" target="_blank">html + tailwind css</a>!</p>
             </div>
         </div>
     </div>
