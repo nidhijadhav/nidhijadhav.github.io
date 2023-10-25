@@ -732,6 +732,10 @@ video {
   overflow-y: auto;
 }
 
+.overscroll-none {
+  overscroll-behavior: none;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1088,6 +1092,18 @@ video {
 
   .md\:items-center {
     align-items: center;
+  }
+
+  .md\:overflow-hidden {
+    overflow: hidden;
+  }
+
+  .md\:overflow-y-auto {
+    overflow-y: auto;
+  }
+
+  .md\:overscroll-none {
+    overscroll-behavior: none;
   }
 
   .md\:pt-5 {
