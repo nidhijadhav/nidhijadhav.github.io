@@ -558,18 +558,6 @@ html {
   margin: 15%;
 }
 
-.m-3 {
-  margin: 0.75rem;
-}
-
-.m-3\% {
-  margin: 3%;
-}
-
-.m-5 {
-  margin: 1.25rem;
-}
-
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -634,14 +622,6 @@ html {
 .h-min {
   height: -moz-min-content;
   height: min-content;
-}
-
-.h-96 {
-  height: 24rem;
-}
-
-.h-auto {
-  height: auto;
 }
 
 .w-full {
@@ -725,10 +705,6 @@ html {
   overflow-y: auto;
 }
 
-.scroll-smooth {
-  scroll-behavior: smooth;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
@@ -752,6 +728,16 @@ html {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-cyan-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 182 212 / var(--tw-bg-opacity));
+}
+
+.bg-cyan-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(8 145 178 / var(--tw-bg-opacity));
+}
+
 .bg-emerald-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(16 185 129 / var(--tw-bg-opacity));
@@ -767,56 +753,6 @@ html {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.bg-rose-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 63 94 / var(--tw-bg-opacity));
-}
-
-.bg-rose-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(225 29 72 / var(--tw-bg-opacity));
-}
-
-.bg-violet-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(139 92 246 / var(--tw-bg-opacity));
-}
-
-.bg-violet-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(124 58 237 / var(--tw-bg-opacity));
-}
-
-.bg-cyan-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(8 145 178 / var(--tw-bg-opacity));
-}
-
-.bg-cyan-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(6 182 212 / var(--tw-bg-opacity));
-}
-
-.bg-orange-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
-}
-
-.bg-orange-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
-}
-
-.bg-fuchsia-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(217 70 239 / var(--tw-bg-opacity));
-}
-
-.bg-fuchsia-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(192 38 211 / var(--tw-bg-opacity));
-}
-
 .bg-purple-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(168 85 247 / var(--tw-bg-opacity));
@@ -825,6 +761,16 @@ html {
 .bg-purple-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(147 51 234 / var(--tw-bg-opacity));
+}
+
+.bg-rose-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 63 94 / var(--tw-bg-opacity));
+}
+
+.bg-rose-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(225 29 72 / var(--tw-bg-opacity));
 }
 
 .bg-yellow-500 {
@@ -853,14 +799,6 @@ html {
   padding: 5%;
 }
 
-.p-1 {
-  padding: 0.25rem;
-}
-
-.p-1\% {
-  padding: 1%;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -879,28 +817,6 @@ html {
 .py-1\% {
   padding-top: 1%;
   padding-bottom: 1%;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
-.py-5\% {
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-
-.pb-5 {
-  padding-bottom: 1.25rem;
-}
-
-.pb-5\% {
-  padding-bottom: 5%;
-}
-
-.pb-8 {
-  padding-bottom: 2rem;
 }
 
 .font-abril {
