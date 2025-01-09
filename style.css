@@ -13,7 +13,7 @@ body {
     color: #333; /* Default text color */
 }
 
-.welcome{
+.name{
     display: block; /* Ensure it behaves like a block element */
     font-size: 14px; /* Small font size */
     font-weight: bold; /* Bold text */
@@ -99,6 +99,8 @@ body {
         padding: 0; /* Remove padding for the row */
     }
 
+    .name,
+    .available-now,
     .about-me, 
     .links,
     .portfolio {
