@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Helvetica, sans-serif; /* Use Inter font */
+    margin: 0; /* Reset default margin */
+    background-color: #F1E6D0;
+}
+
+.text {
+    font-size: 12px;
+    color: #333; /* Default text color */
+}
+
+.welcome{
+    display: block; /* Ensure it behaves like a block element */
+    font-size: 14px; /* Small font size */
+    font-weight: bold; /* Bold text */
+    text-decoration: underline; /* Underlined text */
+    text-align: left;
+    color: #333; /* Default text color */
+}
+
+.available-now {
+    display: block; /* Ensure it behaves like a block element */
+    font-size: 14px; /* Small font size */
+    font-weight: bold; /* Bold text */
+    text-decoration: underline; /* Underlined text */
+    text-align: right;
+    color: #333; /* Default text color */
+}
+
+/* Container for landing page */
+.content {
+    min-height: 100vh; /* Ensure the row takes at least full screen height */
+    padding: 10px; /* Margin for spacing */
+}
+
+/* Container for flexboxes */
+.row {
+    display: flex; /* Ensure the row takes at least full screen height */
+    height: auto; /* Allow height to adjust based on content */
+    min-height: 50vh; /* Ensure it’s at least 50% of the viewport height */
+}
+
+/* Create 2 equal columns that sit next to each other */
+.column {
+    flex: 1; /* Equal width */
+    padding: 10px;
+    display: flex; /* Use flexbox for the column */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: flex-start; /* Space out content within the column */
+}
+
+.about-me {
+    max-width: 55%; /* Maximum width of the about me section */
+    width: 100%; /* Full width on smaller screens */
+    text-align: left; /* Align text to the left */
+    font-size: 18px;
+    margin-left: auto; /* Push the column to the right */
+    margin-top: 100px;
+    height: fit-content; /* Allow to grow with content */
+}
+
+.links {
+    max-width: 55%; /* Maximum width of the about me section */
+    width: 100%; /* Full width on smaller screens */
+    text-align: right; /* Align text to the left */
+    margin-right: auto; /* Push the column to the right */
+    font-size: 16px;
+    margin-top: 100px;
+    height: fit-content; /* Allow to grow with content */
+    text-align: right;
+}
+.portfolio {
+    max-width: 50%; /* Maximum width of the about me section */
+    width: 100%; /* Full width on smaller screens */
+    text-align: left; /* Align text to the left */
+    margin-left: auto; /* Push the column to the right */
+    font-size: 14px;
+    margin-bottom: auto;
+    min-height: 60%; /* At least 30% of the row container height */
+    height: fit-content; /* Allow to grow with content */
+    padding: 100px;
+}
+
+/* Style the footer */
+.footer {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Responsive layout - makes the columns stack on top of each other */
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column; /* Stack the columns */
+        height: auto; /* Let the height adjust to fit the content */
+        padding: 0; /* Remove padding for the row */
+    }
+
+    .about-me, 
+    .links,
+    .portfolio {
+        max-width: 100%; /* Full width on smaller screens */
+        margin: 0; /* Reset all margins */
+        padding: 10px; /* Remove padding */
+        height: auto; /* Fit content */
+        text-align: left; /* Optional: Adjust alignment */
+    }
+}
