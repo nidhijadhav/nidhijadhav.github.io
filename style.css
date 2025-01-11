@@ -5,19 +5,34 @@
 body {
     font-family: 'Inter', Helvetica, sans-serif; /* Use Inter font */
     margin: 0; /* Reset default margin */
-    background-color: #F1E6D0;
+    background-color: #faf4e9;
+    padding: 10px;
 }
 
-.text {
-    font-size: 12px;
+.section-title {
+    display: block;
+    font-size: 16px;
+    font-weight: bold; /* Bold text */
+    color: #333; /* Default text color */
+    margin-top: 10px;
+    margin-bottom: 20px; /* Add space below the title */
+}
+
+.section-heading {
+    display: block;
+    font-size: 14px;
+    font-style: italic; /* Bold text */
+    color: #333; /* Default text color */
+}
+
+.section-text {
+    font-size: 14px;
     color: #333; /* Default text color */
 }
 
 .name{
     display: block; /* Ensure it behaves like a block element */
     font-size: 14px; /* Small font size */
-    font-weight: bold; /* Bold text */
-    text-decoration: underline; /* Underlined text */
     text-align: left;
     color: #333; /* Default text color */
 }
@@ -31,18 +46,13 @@ body {
     color: #333; /* Default text color */
 }
 
-/* Container for landing page */
-.content {
-    min-height: 100vh; /* Ensure the row takes at least full screen height */
-    padding: 10px; /* Margin for spacing */
-}
-
 /* Container for flexboxes */
-.row {
+.intro{
     display: flex; /* Ensure the row takes at least full screen height */
     height: auto; /* Allow height to adjust based on content */
     min-height: 50vh; /* Ensure it’s at least 50% of the viewport height */
 }
+
 
 /* Create 2 equal columns that sit next to each other */
 .column {
@@ -57,7 +67,7 @@ body {
     max-width: 55%; /* Maximum width of the about me section */
     width: 100%; /* Full width on smaller screens */
     text-align: left; /* Align text to the left */
-    font-size: 18px;
+    font-size: 16px;
     margin-left: auto; /* Push the column to the right */
     margin-top: 100px;
     height: fit-content; /* Allow to grow with content */
@@ -68,21 +78,75 @@ body {
     width: 100%; /* Full width on smaller screens */
     text-align: right; /* Align text to the left */
     margin-right: auto; /* Push the column to the right */
-    font-size: 16px;
     margin-top: 100px;
     height: fit-content; /* Allow to grow with content */
     text-align: right;
 }
-.portfolio {
-    max-width: 50%; /* Maximum width of the about me section */
-    width: 100%; /* Full width on smaller screens */
-    text-align: left; /* Align text to the left */
-    margin-left: auto; /* Push the column to the right */
-    font-size: 14px;
-    margin-bottom: auto;
-    min-height: 60%; /* At least 30% of the row container height */
-    height: fit-content; /* Allow to grow with content */
-    padding: 100px;
+
+.nav-bar{
+    display: flex; /* Ensure the row takes at least full screen height */
+    min-height: 50vh;
+    border-bottom: 2px solid #292727; /* Add a divider line */
+    align-items: center; /* Center items vertically */
+}
+
+.nav-item {
+    flex: 1; /* Optional: make items take equal width */
+    text-align: center; /* Center text within each nav-item */
+    font-size: 14px; /* Set the font size */
+    color: #333; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    height: fit-content;
+}
+
+.nav-item:hover {
+    text-decoration: underline; /* Add hover effect */
+}
+
+.cv {
+    align-items: left;
+    display: flex;
+    flex-direction: column; /* Stack experience entries vertically */
+    align-items: flex-start; /* Align items to the left */
+    padding: 20px; /* Add padding */
+    gap: 30px; /* Add spacing between each element */
+}
+
+.experience {
+    display: flex;
+    flex-direction: row; /* Default: Align elements horizontally */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between; /* Space items out horizontally */
+    gap: 15px; /* Add spacing between each element */
+    width: 75%;
+}
+
+
+.experience-item:first-child,
+.experience-item:nth-child(2) {
+    width: 20%; /* Set width to 15% for the first two elements */
+}
+
+.experience-item:nth-child(3) {
+    flex: 1; /* Allow the third element to take up the remaining space */
+}
+
+.projects {
+    align-items: right;
+    display: flex;
+    flex-direction: column; /* Stack experience entries vertically */
+    align-items: flex-start; /* Align items to the left */
+    padding: 20px; /* Add padding */
+    gap: 30px; /* Add spacing between each element */
+}
+
+.project {
+    display: flex;
+    flex-direction: row; /* Default: Align elements horizontally */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between; /* Space items out horizontally */
+    gap: 15px; /* Add spacing between each element */
+    width: 75%;
 }
 
 /* Style the footer */
@@ -92,22 +156,43 @@ body {
 }
 
 /* Responsive layout - makes the columns stack on top of each other */
-@media (max-width: 600px) {
-    .row {
+@media (max-width: 1000px) {
+    .intro,
+    .nav-bar {
         flex-direction: column; /* Stack the columns */
         height: auto; /* Let the height adjust to fit the content */
         padding: 0; /* Remove padding for the row */
+        margin: 0; /* Remove margin for the row */
     }
 
     .name,
     .available-now,
     .about-me, 
     .links,
-    .portfolio {
+    .portfolio{
         max-width: 100%; /* Full width on smaller screens */
         margin: 0; /* Reset all margins */
         padding: 10px; /* Remove padding */
         height: auto; /* Fit content */
         text-align: left; /* Optional: Adjust alignment */
+    }
+
+    .experience {
+        width: 100%; /* Full width on smaller screens */
+        flex-direction: column; /* Stack items vertically on very small screens */
+        gap: 5px;
+    }
+    
+    .experience-item {
+        width: 100%; /* Make all items full width on very small screens */
+    }
+
+    .experience-item:first-child,
+    .experience-item:nth-child(2) {
+        width: 100%; /* Set width to 15% for the first two elements */
+    }
+    .experience-item:nth-child(2) {
+        padding-bottom: 5px;
+        border-bottom: 1px solid #7f7f7f7e; /* Add a divider line */
     }
 }
