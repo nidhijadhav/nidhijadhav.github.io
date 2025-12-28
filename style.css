@@ -119,6 +119,7 @@ body {
     justify-content: space-between; /* Space items out horizontally */
     gap: 15px; /* Add spacing between each element */
     width: 75%;
+    height: fit-content; /* Keep each row only as tall as its content */
 }
 
 
@@ -132,12 +133,18 @@ body {
 }
 
 .projects {
-    align-items: right;
     display: flex;
-    flex-direction: column; /* Stack experience entries vertically */
-    align-items: flex-start; /* Align items to the left */
+    flex-direction: column; /* Stack project entries vertically */
+    align-items: flex-end; /* Anchor the block to the right edge */
     padding: 20px; /* Add padding */
     gap: 30px; /* Add spacing between each element */
+    text-align: right; /* Right-align the section title */
+}
+
+.section-title-right {
+    width: 75%;
+    text-align: right;
+    align-self: flex-end;
 }
 
 .project {
@@ -147,6 +154,18 @@ body {
     justify-content: space-between; /* Space items out horizontally */
     gap: 15px; /* Add spacing between each element */
     width: 75%;
+    text-align: left; /* Keep body text easy to read */
+}
+
+.project-description {
+    flex: 1;
+    text-align: left;
+}
+
+.project-title,
+.project-date {
+    width: 20%;
+    text-align: right;
 }
 
 /* Style the footer */
@@ -194,5 +213,30 @@ body {
     .experience-item:nth-child(2) {
         padding-bottom: 5px;
         border-bottom: 1px solid #7f7f7f7e; /* Add a divider line */
+    }
+
+    .projects {
+        align-items: flex-start;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .section-title-right,
+    .project {
+        width: 100%;
+    }
+
+    .project {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .project-item {
+        width: 100%;
+    }
+
+    .project-title,
+    .project-date {
+        text-align: left;
     }
 }
