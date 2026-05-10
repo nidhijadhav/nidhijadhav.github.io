@@ -1,201 +1,458 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nidhi Jadhav</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- TOP HALF -->
-    <div class="intro">
-        <div class="column">
-            <div class="name"><b>PORTFOLIO 2025</b> | Signed 19-11-2025</div>
-            <div class="about-me">
-                <text> <b>NIDHI JADHAV</b> is a Computer Science student at Northeastern University with a focus on building innovative solutions and fostering collaboration. Her curiosity and drive fuel her ambition to create meaningful projects that bring people together and inspire others to pursue impactful work.
-                <br><br>
-                     Beyond her passion for technology, Nidhi has a deep appreciation for art, regularly drawing and curating playlists that capture her travels and experiences. Always seeking to learn and grow, she is excited to connect with new opportunities and like-minded individuals.</text>
-            </div>
+<div id="app">
+
+  <div id="cursor"></div>
+
+  <!-- ═══════════ STATE 1: LANDING ═══════════ -->
+  <div id="landing">
+    <span class="land-stamp">PORTFOLIO 2025 | Signed <span id="land-date"></span></span>
+    <a class="land-avail" id="land-avail" href="mailto:nidhivjadhav@gmail.com">AVAILABLE NOW</a>
+
+    <div class="land-body">
+      <div class="land-cols">
+        <div class="land-col-left">
+          <p class="land-name" id="land-name">NIDHI JADHAV</p>
+          <p class="land-bio">is a designer, researcher, and builder working at the intersection of technology and human experience. Currently based in Boston, MA. Her curiosity and drive fuel her ambition to create meaningful work that brings people together.</p>
+          <p class="land-bio">Beyond her technical work, Nidhi has a deep appreciation for sound, archiving, and the texture of everyday life. Always seeking to learn and grow, she is excited to connect with new opportunities and like-minded individuals.</p>
         </div>
-        <div class="column">
-            <a href="mailto:nidhivjadhav@gmail.com" class="available-now">AVAILABLE NOW</a>
-            <div class="links">
-                <a href="https://www.linkedin.com/in/nidhii-jadhav/" class="section-text">LinkedIn</a>
-                <br>
-                <a href="https://github.com/nidhijadhav" class="section-text">Github</a>
-                <br>
-                <a href="https://www.youtube.com/@nidhiijadhav" class="section-text">YouTube</a>
-                <br>
-            </div>
+        <div class="land-col-right">
+          <a href="https://www.linkedin.com/in/nidhii-jadhav/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/nidhiijadhav" target="_blank" rel="noopener">Github</a>
+          <a href="https://medium.com/@nidhivjadhav" target="_blank" rel="noopener">Medium</a>
         </div>
+      </div>
     </div>
 
-    <!-- NAV BAR -->
-    <div class="nav-bar">
-        <div class="nav-item">
-            00
-            <br>
-            <b>Curriculum Vitae</b>
-        </div>
-        <div class="nav-item">
-            01
-            <br>
-            <b>Technical Projects</b>
-        </div>
-        <div class="nav-item">
-            02
-            <br>
-            <b>Written Words</b>
-        </div>
-        <div class="nav-item">
-            03
-            <br>
-            <b>Captured Media</b>
-        </div>
-    </div>
+    <button class="land-enter" id="land-enter">ENTER PORTFOLIO HERE !!!!!</button>
+  </div>
 
-    <!-- Curriculum Vitae -->
-    <div class="cv">
-        <div class="section-title">00 | CURRICULUM VITAE</div>
-        <div class="experience">
-            <div class="experience-item">
-                <div class="section-heading">SEPT 2025 - PRESENT</div>
-            </div>
-            <div class="experience-item">
-                <div class="section-heading">Research @ Goodwill Computing Lab</div>
-            </div>
-            <div class="experience-item">
-                <div class="section-text">
-                     Investigating how AI infrastructure expansion interacts with existing 
-                     socio-economic inequalities across the U.S. by merging intergenerational 
-                     mobility metrics from Raj Chetty's Opportunity Atlas with environmental 
-                     datasets on LLM data centers. The work analyzes water consumption, 
-                     carbon intensity, and compute infrastructure growth to understand the 
-                     tangible footprint of modern AI systems. By bridging computational 
-                     research with policy-relevant insights, this project explores how 
-                     technology can be built more equitably. Building reproducible, 
-                     data-driven pipelines that reveal where AI's expansion overlaps with 
-                     regional economic vulnerability.
-                </div>
-            </div>
-        </div>
-        <div class="experience">
-            <div class="experience-item">
-                <div class="section-heading">SEPT 2024 - DEC 2024</div>
-            </div>
-            <div class="experience-item">
-                <div class="section-heading">SWE Intern @ Snowflake</div>
-            </div>
-            <div class="experience-item">
-                <div class="section-text">
-                    Tackled a critical challenge for GTM teams: processing and extracting 
-                    actionable insights from call transcripts at scale. Built a RAG model 
-                    paired with an analytics dashboard that streamlined the workflow, enabling 
-                    teams to surface key insights significantly faster. This <a href="https://www.snowflake.com/en/developers/solutions-center/building-an-ai-sales-assistant-with-snowflake-cortex---notebooks/" class="section-text">Snowflake certified solution</a>
-                    was released alongside a detailed blog post and YouTube video that communicated 
-                    the technical approach and business impact to broader audiences.
-                </div>
-            </div>
-        </div>
-        <div class="experience">
-            <div class="experience-item">
-                <div class="section-heading">JAN 2023 - JUNE 2024</div>
-            </div>
-            <div class="experience-item">
-                <div class="section-heading">Student Researcher @ SimBioSys Lab</div>
-            </div>
-            <div class="experience-item">
-                <div class="section-text">
-                    Built a full-stack web application using Python, Flask, and React to 
-                    visualize and model the glycan shield surrounding viral proteins. 
-                    Processed PDB files and extracted structural data to deepen understanding 
-                    of viral architecture and its biomedical implications. This experience 
-                    crystallized a passion for blending computational tools with biological 
-                    problems, finding elegant technical solutions to questions that genuinely matter.
-                </div>
-            </div>
-        </div>
-        <div class="experience">
-            <div class="experience-item">
-                <div class="section-heading">Jul 2023 - JUNE 2024</div>
-            </div>
-            <div class="experience-item">
-                <div class="section-heading">Student Researcher @ New Jersey's Governors School of Engineering and Technology</div>
-            </div>
-                <div class="experience-item">
-                    <div class="section-text">
-                        Selected as the sole high school nominee for this elite engineering 
-                        and technology program. Completed rigorous coursework and conducted 
-                        original research while collaborating with accomplished peers and 
-                        faculty on intricate engineering challenges. A formative experience 
-                        that fundamentally shaped approaches to problem-solving and 
-                        interdisciplinary collaboration.
-                    </div>
-                </div>
-            </div>
-            <div class="experience">
-                <div class="experience-item">
-                    <div class="section-heading">NOV 2019 - JUNE 2021</div>
-                </div>
-            <div class="experience-item">
-                <div class="section-heading">CMO @ Q-munity</div>
-            </div>                
-            <div class="experience-item">
-                <div class="section-text">
-                    Co-founded an educational initiative to democratize quantum computing 
-                    access, partnering with IBM and NYU. Organized an international summer 
-                    camp and facilitated 25+ workshops that reached 1,000+ students across 
-                    25+ countries. Secured $1,000+ in funding to fuel outreach efforts. Most 
-                    proud of building a genuine global community around emerging technology, 
-                    proving that curiosity and access aren't limited by geography.
-                </div>
-            </div>
-        </div>
-    </div>
+  <!-- ═══════════ STATE 2: PORTFOLIO ═══════════ -->
 
-    <!-- Technical Projects -->
-    <div class="projects">
-        <div class="section-title section-title-right">01 | TECHNICAL PROJECTS</div>
-        <div class="project">
-            <div class="project-item project-description">
-                <div class="section-text">
-                    Built a reproducible mapping pipeline that fuses Opportunity Atlas mobility data with energy and water usage from large LLM data centers. Exposed the findings through a lightweight dashboard so policymakers can see how AI build-outs intersect with climate stress and regional inequality.
-                </div>
-            </div>
-            <div class="project-item project-title">
-                <div class="section-heading">AI Infrastructure Atlas</div>
-            </div>
-            <div class="project-item project-date">
-                <div class="section-heading">2024</div>
-            </div>
+  <!-- HEADER -->
+  <div id="app-header">
+    <div id="header-inner">
+      <div id="header-top">
+        <span>NIDHI JADHAV</span><br>
+        <span>This is her website as of</span><br>
+        <span id="load-dt"></span>
+      </div>
+      <div id="header-nav">
+        <div class="nav-item active" data-idx="0">
+          <a href="#"><span>00 | Introduction</span></a>
         </div>
-        <div class="project">
-            <div class="project-item project-description">
-                <div class="section-text">
-                    Engineered a Python + Flask backend with a React front-end to visualize viral glycan shields at varying resolutions. Automated PDB ingestion, feature extraction, and interactive 3D rendering so researchers can intuitively interrogate structural motifs.
-                </div>
-            </div>
-            <div class="project-item project-title">
-                <div class="section-heading">Glycan Shield Explorer</div>
-            </div>
-            <div class="project-item project-date">
-                <div class="section-heading">2023</div>
-            </div>
+        <div class="nav-item" data-idx="1">
+          <a href="#"><span>01 | Curriculum Vitae</span></a>
         </div>
-        <div class="project">
-            <div class="project-item project-description">
-                <div class="section-text">
-                    Led a global workshop series that paired high-school students with mentors from IBM and NYU. Built the curriculum website, registration tooling, and async content delivery so attendees across 25+ countries could experiment with real quantum circuits.
-                </div>
-            </div>
-            <div class="project-item project-title">
-                <div class="section-heading">Quantum Community Camp</div>
-            </div>
-            <div class="project-item project-date">
-                <div class="section-heading">2021</div>
-            </div>
+        <div class="nav-item" data-idx="2">
+          <a href="#"><span>02 | Projects</span></a>
         </div>
-        <div class="name"> Rest coming soon.</div>
+        <div class="nav-item" data-idx="3">
+          <a href="#"><span>03 | Written Words</span></a>
+        </div>
+        <div class="nav-item" data-idx="4">
+          <a href="#"><span>04 | Captured Media</span></a>
+        </div>
+        <div class="nav-item" data-idx="5">
+          <a href="#"><span>05 | Sound Archives</span></a>
+        </div>
+        <div class="nav-item" data-idx="6">
+          <a href="#"><span>06 | Places I Like</span></a>
+        </div>
+        <div class="nav-item" data-idx="7">
+          <a href="#"><span>07 | Leave a Postcard</span></a>
+        </div>
+        <div class="nav-item" data-idx="999">
+          <a href="#"><span>999 | TLDR;</span></a>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div id="app-page">
+    <div id="page-container">
+      <div id="page-top">
+        <div class="fw-bold line" id="page-section-label">00</div>
+      </div>
+      <div id="page-content">
+      <div id="sections-track">
+
+        <!-- 00 — Intro -->
+        <div class="contain" id="sec-00">
+          <div class="col-row">
+            <div class="col col-label">
+              <p><span class="fw-bold"> 00 | Introduction</span></p>
+            </div>
+            <div class="col">
+                <p>Available for freelance projects, research collaborations, and full-time roles starting Summer 2026.</p>
+            </div>
+            <div class="col">
+              <p><span class="fw-bold">Email</span></p>
+              <p><a href="mailto:nidhivjadhav@gmail.com">nidhivjadhav@gmail.com</a></p>
+              <p><span class="fw-bold">Northeastern</span></p>
+              <p><a href="mailto:jadhav.n@northeastern.edu">jadhav.n@northeastern.edu</a></p>
+              <p>Response time: 24-48 hours.</p>
+            </div>
+            <div class="col">
+              <p><span class="fw-bold">Social</span></p>
+              <p><a href="https://www.linkedin.com/in/nidhii-jadhav/" target="_blank" rel="noopener">LinkedIn</a></p>
+              <p><a href="https://github.com/nidhijadhav" target="_blank" rel="noopener">Github</a></p>
+              <p><a href="https://medium.com/@nidhivjadhav" target="_blank" rel="noopener">Medium</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 01 | CV -->
+        <div class="contain" id="sec-01">
+          <div class="col-row">
+            <div class="col col-label">
+              <p><span class="fw-bold">01 | Curriculum Vitae</span></p>
+              <p><a href="pages/cv.pdf" target="_blank">Download CV →</a></p>
+            </div>
+            <div class="col">
+              <p class="fw-bold">EDUCATION</p>
+              <div class="entry-item">
+                <div class="entry-header">
+                  <div class="entry-title">Northeastern University - BS Computer Science</div>
+                  <div class="entry-date">^^^^2022 to 2026</div>
+                </div>
+                <div class="entry-body">
+                  <p>Concentration in Artificial Intelligence, minors in Mathematics and Business. GPA 3.8. Graduated May 2026. Recipient of the John Martinson Honors Program distinction, Dean's List, PEAK Basecamp Research Award, and PEAK Ascent Research Award.</p>
+                </div>
+              </div>
+              <div class="entry-item">
+                <div class="entry-header">
+                  <div class="entry-title">University of Oxford - Study Abroad</div>
+                  <div class="entry-date">^^^^2025</div>
+                </div>
+                <div class="entry-body">
+                  <p>Spent a semester studying at Oxford, engaging with coursework and perspectives at the intersection of technology, society, and policy.</p>
+                </div>
+              </div>
+              <div class="entry-item">
+                <div class="entry-header">
+                  <div class="entry-title">Dialogue of Civilizations - Paris, France</div>
+                  <div class="entry-date">^^^^2023</div>
+                </div>
+                <div class="entry-body">
+                  <p>Participated in Northeastern University's Dialogue of Civilizations program, spending a semester at Sciences Po Paris, one of France's leading institutions for political science and international affairs.</p>
+                </div>
+              </div>
+              <div class="entry-item">
+                <div class="entry-header">
+                  <div class="entry-title">NJ Governor's School of Engineering and Technology</div>
+                  <div class="entry-date">^^^^2021</div>
+                </div>
+                <div class="entry-body">
+                  <p>Selected as the sole nominee from her high school to attend an elite statewide engineering and technology program. Engaged in advanced coursework and original research alongside students and faculty from across New Jersey.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <p class="fw-bold">EXPERIENCE</p>
+              <div class="entry-item">
+                <div class="entry-header">
+                  <div class="entry-title">Student Researcher - Goodwill Computing Lab</div>
+                  <div class="entry-date">^^^^Sept 2025 to Present</div>
+                  <div class="entry-tech">{{{ Python, Data Analysis, Environmental Impact, Socioeconomic Research, Datacenter Infrastructure }}}</div>
+                </div>
+                <div class="entry-body">
+                  <p>Investigating the intersection of datacenter infrastructure and socioeconomic inequality across the United States. Correlates intergenerational mobility metrics with economic and environmental impact datasets, analyzing the geographic and demographic implications of data center placement on local communities and environmental resources.</p>
+                </div>
+              </div>
+              <div class="entry-item">
+                <div class="entry-header">
+                  <div class="entry-title">Software Engineering Intern - Snowflake</div>
+                  <div class="entry-date">^^^^Sept 2024 to Dec 2024</div>
+                  <div class="entry-tech">{{{ Python, SQL, Streamlit, RAG, LLM, Vector Embeddings, Snowflake }}}</div>
+                </div>
+                <div class="entry-body">
+                  <p>Architected an end-to-end ML pipeline for a Snowflake Certified Solution analyzing over 1,000 sales transcripts for six enterprise customers, using a RAG-based LLM with vector embeddings and sentiment analysis. Engineered a Streamlit dashboard with a natural language query interface, converting user prompts into optimized SQL and Python for real-time data visualization and analytics.</p>
+                </div>
+              </div>
+              <div class="entry-item">
+                <div class="entry-header">
+                  <div class="entry-title">Student Researcher - SimBioSys Lab, Northeastern University</div>
+                  <div class="entry-date">^^^^Jan 2023 to June 2024</div>
+                  <div class="entry-tech">{{{ Python, Flask, React, MySQL, VMD, PDB Parsing }}}</div>
+                </div>
+                <div class="entry-body">
+                  <p>Contributed to a full-stack web application modeling the glycan shield surrounding viral proteins, using Python, Flask, and React. Developed a PDB file parser to extract and process structural data on viral proteins, automating a data pipeline for biomedical research workflows.</p>
+                </div>
+              </div>
+              <div class="entry-item">
+                <div class="entry-header">
+                  <div class="entry-title">Co-Founder - Q-munity</div>
+                  <div class="entry-date">^^^^Nov 2019 to June 2021</div>
+                  <div class="entry-tech">{{{ Quantum Computing, Education, Nonprofit, IBM, NYU }}}</div>
+                </div>
+                <div class="entry-body">
+                  <p>Co-founded a quantum computing education nonprofit in partnership with IBM and NYU. Organized an international summer camp and over 25 workshops reaching more than 1,000 students across 25 countries. Secured funding to support accessibility and outreach efforts.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <p><span class="fw-bold">Skills</span></p>
+              <p>Figma · HTML/CSS/JS · Python · D3.js · Data Visualization · User Research · Prototyping</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 | Projects -->
+        <div class="contain" id="sec-02">
+          <div class="col-row">
+            <div class="col col-label">
+              <p><span class="fw-bold">02 | Projects</span></p>
+              <p>A selection of work across design, engineering, and research.</p>
+            </div>
+            <div class="col">
+              <div class="expand-item">
+                <div class="expand-header">Thesis: Mapping Invisible Infrastructures</div>
+                <div class="proj-tech">{{{ D3.js, Observable Framework }}}</div>
+                <div class="expand-body">
+                  <p>Interactive data visualization exploring urban data systems and the hidden networks that structure city life. Built with D3.js and Observable Framework.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="expand-item">
+                <div class="expand-header">Voice Interface for Accessibility</div>
+                <div class="proj-tech">{{{ React, Web Speech API }}}</div>
+                <div class="expand-body">
+                  <p>Speech-driven navigation for users with motor disabilities. Prototyped in React with Web Speech API. Evaluated with five participants over three months.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="expand-item">
+                <div class="expand-header">Sound Map: Boston</div>
+                <div class="proj-tech">{{{ Mapbox GL JS }}}</div>
+                <div class="expand-body">
+                  <p>Geolocated audio documentary of Boston neighborhoods. Field recordings layered onto a custom web map built with Mapbox GL JS.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="expand-item">
+                <div class="expand-header">Archive of Small Things</div>
+                <div class="proj-tech">{{{ Vanilla JS }}}</div>
+                <div class="expand-body">
+                  <p>A personal archiving practice turned into a public digital garden. Built entirely with vanilla JS, no framework, no database. Deliberately fragile.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 | Written Words -->
+        <div class="contain" id="sec-03">
+          <div class="col-row">
+            <div class="col col-label">
+              <p><span class="fw-bold">03 | Written Words</span></p>
+              <p>My research sits at intersections: human-computer interaction, critical data studies, and design for social good.</p>
+            </div>
+            <div class="col">
+              <p><span class="fw-bold">Current questions</span></p>
+              <p>How do people form mental models of algorithmic systems they cannot see?</p>
+              <p>What does it mean to design for memory and forgetting in digital environments?</p>
+            </div>
+            <div class="col">
+              <p><span class="fw-bold">Methods</span></p>
+              <p>Contextual inquiry · Think-aloud protocols · Diary studies · Participatory design · Speculative scenarios</p>
+            </div>
+            <div class="col">
+              <p><span class="fw-bold">Publications &amp; Presentations</span></p>
+              <p>CHI 2025 — Workshop paper on invisible algorithmic interfaces</p>
+              <p>Northeastern RISE 2024 — Poster on voice interface accessibility</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 | Captured Media -->
+        <div class="contain" id="sec-04">
+          <div class="film-title">
+            <span class="fw-bold">04 | Captured Media</span>
+          </div>
+          <div class="film-rows" id="film-rows">
+            <div class="film-row" id="film-row-1">
+              <div class="photo-col">
+                <div class="photo-col-title">/Tokyo, 2024</div>
+                <div class="photo-col-date">^^^^October 2024</div>
+                <div class="photo-col-tags">{{{ street, night, Japan }}}</div>
+                <div class="photo-col-img landscape"></div>
+                <div class="photo-col-caption">The green line at rush hour.</div>
+              </div>
+              <div class="photo-col">
+                <div class="photo-col-title">/The Charles, January</div>
+                <div class="photo-col-date">^^^^January 2025</div>
+                <div class="photo-col-tags">{{{ water, winter, Boston }}}</div>
+                <div class="photo-col-img portrait"></div>
+                <div class="photo-col-caption">The Charles River at 5am, half-frozen.</div>
+              </div>
+              <div class="photo-col">
+                <div class="photo-col-title">/Somewhere in Paris</div>
+                <div class="photo-col-date">^^^^Summer 2023</div>
+                <div class="photo-col-tags">{{{ city, morning, France }}}</div>
+                <div class="photo-col-img square"></div>
+                <div class="photo-col-caption">Rain on the Seine, looking west.</div>
+              </div>
+              <div class="photo-col">
+                <div class="photo-col-title">/Coastal</div>
+                <div class="photo-col-date">^^^^2024</div>
+                <div class="photo-col-tags">{{{ ocean, light, travel }}}</div>
+                <div class="photo-col-img landscape"></div>
+                <div class="photo-col-caption">Light breaking through.</div>
+              </div>
+              <div class="photo-col">
+                <div class="photo-col-title">/Market</div>
+                <div class="photo-col-date">^^^^2023</div>
+                <div class="photo-col-tags">{{{ people, color, abroad }}}</div>
+                <div class="photo-col-img portrait"></div>
+                <div class="photo-col-caption">Fish market at closing time.</div>
+              </div>
+              <div class="photo-col">
+                <div class="photo-col-title">/Architecture Study</div>
+                <div class="photo-col-date">^^^^2025</div>
+                <div class="photo-col-tags">{{{ structure, detail, Oxford }}}</div>
+                <div class="photo-col-img landscape"></div>
+                <div class="photo-col-caption">Detail from the Bodleian.</div>
+              </div>
+            </div>
+            <div class="film-row" id="film-row-2">
+              <div class="photo-col">
+                <div class="photo-col-title">/Amsterdam, June</div>
+                <div class="photo-col-date">^^^^June 2024</div>
+                <div class="photo-col-tags">{{{ canal, light, Netherlands }}}</div>
+                <div class="photo-col-img portrait"></div>
+                <div class="photo-col-caption">Canal light through glass.</div>
+              </div>
+              <div class="photo-col">
+                <div class="photo-col-title">/Mumbai, Winter</div>
+                <div class="photo-col-date">^^^^December 2023</div>
+                <div class="photo-col-tags">{{{ city, energy, India }}}</div>
+                <div class="photo-col-img landscape"></div>
+                <div class="photo-col-caption">A city that never completely sleeps.</div>
+              </div>
+              <div class="photo-col">
+                <div class="photo-col-title">/Subway, NYC</div>
+                <div class="photo-col-date">^^^^March 2025</div>
+                <div class="photo-col-tags">{{{ transit, fluorescent, night }}}</div>
+                <div class="photo-col-img square"></div>
+                <div class="photo-col-caption">Fluorescent light, 3am.</div>
+              </div>
+              <div class="photo-col">
+                <div class="photo-col-title">/Fenway, Spring</div>
+                <div class="photo-col-date">^^^^April 2025</div>
+                <div class="photo-col-tags">{{{ crowd, light, Boston }}}</div>
+                <div class="photo-col-img landscape"></div>
+                <div class="photo-col-caption">Pink light before the game.</div>
+              </div>
+              <div class="photo-col">
+                <div class="photo-col-title">/Cambridge Streets</div>
+                <div class="photo-col-date">^^^^February 2025</div>
+                <div class="photo-col-tags">{{{ fog, brick, winter }}}</div>
+                <div class="photo-col-img portrait"></div>
+                <div class="photo-col-caption">Brick and morning fog.</div>
+              </div>
+              <div class="photo-col">
+                <div class="photo-col-title">/Northeastern, October</div>
+                <div class="photo-col-date">^^^^October 2024</div>
+                <div class="photo-col-tags">{{{ campus, autumn, Boston }}}</div>
+                <div class="photo-col-img landscape"></div>
+                <div class="photo-col-caption">Husky territory in October.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 | Sound Archives -->
+        <div class="contain" id="sec-05">
+          <div class="col-row">
+            <div class="col col-label">
+              <p><span class="fw-bold">05 | Sound Archives</span></p>
+              <p>An ongoing collection of field recordings, ambient textures, and sonic experiments.</p>
+              <p>Zoom H5 and various contact microphones.</p>
+            </div>
+            <div class="col">
+              <div class="expand-item">
+                <div class="expand-header">Boston, January 2025</div>
+                <div class="expand-body">
+                  <p>Ice forming on the Charles River at 5am. The city has not woken yet. A kind of negative space of sound.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="expand-item">
+                <div class="expand-header">Mumbai, December 2023</div>
+                <div class="expand-body">
+                  <p>The mechanics of a fish market at closing time. Negotiation, exhaustion, ice. The particular sound of a transaction ending.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="expand-item">
+                <div class="expand-header">Amsterdam, June 2024</div>
+                <div class="expand-body">
+                  <p>Bicycle bells and canal water. A tram passes at 3-second intervals. Rhythm as infrastructure.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <p>Hosted audio files and waveform visualizations coming soon.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 | Places I Like -->
+        <div class="contain" id="sec-06">
+          <div class="col-row">
+            <div class="col col-label">
+              <p><span class="fw-bold">06 | Places I Like</span></p>
+              <p>Some of my favorite places around the world, from cities to landscapes to specific corners of rooms.</p>
+          </div>
+        </div>
+
+        <!-- 07 | Leave a Postcard -->
+        <div class="contain" id="sec-07">
+          <div class="postcard-section">
+            <div class="pc-builder">
+              <div class="pc-builder-header">
+                <p><span class="fw-bold">07 | Leave a Postcard</span></p>
+                <p>Draw, stamp, and send. It lives here.</p>
+              </div>
+            </div>
+            <div class="pc-wall-col">
+              <div id="postcard-wall"></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- #sections-track -->
+      </div><!-- #page-content -->
+    </div><!-- #page-container -->
+  </div><!-- #app-page -->
+
+  <!-- PARALLAX LANDSCAPE -->
+  <div id="app-landscape">
+    <div id="parallax">
+      <div id="layer-1" class="layer"></div>
+      <div id="layer-2" class="layer"></div>
+      <div id="layer-3" class="layer"></div>
+      <div id="layer-4" class="layer"></div>
+    </div>
+  </div>
+
+</div><!-- #app -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
 </body>
 </html>
