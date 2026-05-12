@@ -786,283 +786,292 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
 /* ─── MOBILE ─────────────────────────────────────── */
 
 @media (max-width: 780px) {
-  html, body { overflow: auto; height: auto; }
-}
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+  }
 
-/* Applied via JS isMobile() — mirrors Rietveld pattern */
-#app.mobile {
-  overflow-y: auto;
-  height: auto;
-  position: relative;
-}
+  #app {
+    position: relative;
+    width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+  }
 
-/* Hide cursor line on mobile */
-#app.mobile #cursor { display: none; }
+  #cursor { display: none; }
 
-/* Header: fixed at top, full width */
-#app.mobile #app-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-  height: auto;
-  overflow: visible;
-}
+  #app-header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    opacity: 1;
+    pointer-events: all;
+  }
 
-#app.mobile #header-inner {
-  flex-direction: column;
-  height: auto;
-  white-space: normal;
-  padding: 12px 16px 0;
-}
+  #header-inner {
+    flex-direction: column;
+    height: auto;
+    white-space: normal;
+    padding: 12px 16px;
+  }
 
-#app.mobile #header-top {
-  width: 100%;
-}
+  #header-top {
+    width: 100%;
+    margin-bottom: 6px;
+  }
 
-/* Nav: stacked vertically on mobile */
-#app.mobile #header-nav {
-  flex: none;
-  width: 100%;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  overflow-x: hidden;
-  overflow-y: visible;
-  align-items: flex-start;
-  text-align: left;
-  gap: 0;
-  padding: 6px 0 10px;
-}
+  #header-nav {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    gap: 0;
+    padding: 0;
+  }
 
-#app.mobile #header-nav > div {
-  flex: 0 0 auto;
-  width: 100%;
-  text-align: left;
-  justify-content: flex-start;
-  padding: 1px 0;
-}
+  #header-nav > div {
+    flex: none;
+    width: 100%;
+    text-align: left;
+    top: 0 !important;
+    position: relative;
+    justify-content: flex-start;
+    padding: 2px 0;
+  }
 
-#app.mobile #header-nav > div a {
-  text-align: left;
-}
+  #header-nav > div a {
+    text-align: left;
+  }
 
-/* Remove stagger on mobile */
-#app.mobile #header-nav > div:nth-child(3n+1),
-#app.mobile #header-nav > div:nth-child(3n+2),
-#app.mobile #header-nav > div:nth-child(3n+3) {
-  top: 0;
-}
+  #app-page {
+    position: relative;
+    top: auto;
+    height: auto;
+    overflow: visible;
+    opacity: 1;
+    pointer-events: all;
+    padding: 0;
+  }
 
-/* Page: normal document flow */
-#app.mobile #app-page {
-  position: relative;
-  top: 0;
-  height: auto;
-  overflow: visible;
-  padding-top: 0;
-}
+  #page-container {
+    height: auto;
+  }
 
-#app.mobile #page-container {
-  height: auto;
-}
+  #page-top {
+    padding: 8px 16px;
+  }
 
-#app.mobile #page-top {
-  display: none;
-}
+  #page-content {
+    height: auto;
+    overflow: visible;
+    position: relative;
+    margin-top: 0;
+  }
 
-#app.mobile #page-content {
-  overflow: visible;
-  height: auto;
-}
+  #sections-track {
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    transform: none;
+    transition: none;
+  }
 
-/* Section track: vertical stack, natural scroll */
-#app.mobile #sections-track {
-  flex-direction: column;
-  height: auto;
-  transform: none !important;
-  transition: none;
-  overflow: visible;
-}
+  .contain {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+  }
 
-/* Sections: auto height, full width */
-#app.mobile .contain {
-  width: 100%;
-  height: auto;
-  min-height: 0;
-  overflow: visible;
-  margin-bottom: 0;
-}
+  .col-row {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+    padding: 0 16px;
+    gap: 0;
+  }
 
-/* Column rows: stack vertically */
-#app.mobile .col-row {
-  flex-direction: column;
-  height: auto;
-  overflow: visible;
-  gap: 0;
-  padding: 0 16px;
-}
+  .col {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    flex: none;
+    padding: 0 0 12px 0;
+    gap: 2px;
+  }
 
-#app.mobile .col {
-  width: 100%;
-  height: auto;
-  overflow: visible;
-  gap: 2px;
-  padding-bottom: 12px;
-}
+  .col-label {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+  }
 
-#app.mobile .expand-item {
-  margin-bottom: 2px;
-}
+  .expand-item {
+    margin-bottom: 2px;
+  }
 
-#app.mobile .col-label {
-  flex: 0 0 100%;
-  width: 100%;
-  min-width: 0;
-}
+  #app-landscape {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    pointer-events: none;
+    opacity: 1;
+  }
 
-/* Landing: single column, left aligned */
-#app.mobile #landing {
-  overflow-y: auto;
-  display: block;
-}
+  #parallax {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
 
-#app.mobile .land-stamp {
-  position: relative;
-  top: auto;
-  left: auto;
-  display: block;
-  padding: 20px 20px 4px;
-}
+  #parallax .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: none !important;
+  }
 
-#app.mobile .land-avail {
-  position: relative;
-  top: auto;
-  right: auto;
-  display: block;
-  padding: 0 20px 20px;
-  text-align: left;
-}
+  #quote-ticker {
+    display: none;
+  }
 
-#app.mobile .land-body {
-  padding: 20px 20px 0;
-  align-items: flex-start;
-}
+  /* Landing */
+  #landing {
+    overflow-y: auto;
+    display: block;
+  }
 
-#app.mobile .land-cols {
-  flex-direction: column;
-  gap: 20px;
-}
+  .land-stamp {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: block;
+    padding: 20px 20px 4px;
+  }
 
-#app.mobile .land-col-left {
-  max-width: 100%;
-}
+  .land-avail {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: block;
+    padding: 0 20px 20px;
+    text-align: left;
+  }
 
-#app.mobile .land-name {
-  font-size: clamp(32px, 10vw, 56px);
-  margin-bottom: 16px;
-}
+  .land-body {
+    padding: 20px 20px 0;
+    align-items: flex-start;
+  }
 
-#app.mobile .land-enter {
-  padding: 30px 20px 40px;
-  text-align: left;
-}
+  .land-cols {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-/* Captured media: horizontal scroll strip */
-#app.mobile #sec-04 {
-  height: 320px;
-  overflow: hidden;
-}
+  .land-col-left {
+    max-width: 100%;
+  }
 
-#app.mobile .film-strip {
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  height: 100%;
-  gap: 6px;
-  padding: 0 16px;
-  -webkit-overflow-scrolling: touch;
-}
+  .land-name {
+    font-size: clamp(32px, 10vw, 56px);
+    margin-bottom: 16px;
+  }
 
-#app.mobile .photo-col {
-  flex: 0 0 260px;
-  height: 100%;
-  flex-direction: row;
-  gap: 6px;
-  overflow: visible;
-}
+  .land-enter {
+    padding: 30px 20px 40px;
+    text-align: left;
+  }
 
-#app.mobile .photo-slot {
-  flex: 0 0 260px;
-  height: 100%;
-  min-height: 0;
-}
+  /* Captured media: horizontal scroll strip */
+  #sec-04 {
+    overflow: hidden;
+  }
 
-/* Postcard section: stack vertically on mobile */
-#app.mobile #sec-07 {
-  overflow: visible;
-}
+  .film-strip {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+    gap: 6px;
+    padding: 0 16px;
+    -webkit-overflow-scrolling: touch;
+  }
 
-#app.mobile .postcard-section {
-  flex-direction: column;
-  height: auto;
-  gap: 20px;
-}
+  .photo-col {
+    flex: 0 0 260px;
+    height: 100%;
+    flex-direction: row;
+    gap: 6px;
+    overflow: visible;
+  }
 
-#app.mobile .pc-builder {
-  flex: none;
-  width: 100%;
-  height: auto;
-}
+  .photo-slot {
+    flex: 0 0 260px;
+    height: 100%;
+    min-height: 0;
+  }
 
-#app.mobile .pc-wall-col {
-  flex: none;
-  width: 100%;
-  height: 260px;
-  border-left: none;
-  border-top: 1px solid rgba(0,0,0,0.2);
-  padding-left: 0;
-  padding-top: 12px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-}
+  /* Postcard section */
+  .postcard-section {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
 
-#app.mobile #postcard-wall {
-  flex-direction: row;
-  height: 100%;
-}
+  .pc-builder {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
 
-/* Touch scrolling on all scroll containers */
-#app.mobile .col-row,
-#app.mobile #header-nav,
-#app.mobile .film-strip,
-#app.mobile .pc-wall-col {
-  -webkit-overflow-scrolling: touch;
-}
+  .pc-wall-col {
+    flex: none;
+    width: 100%;
+    height: 220px;
+    border-left: none;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding-left: 0;
+    padding-top: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
 
+  #postcard-wall {
+    flex-direction: row;
+    height: 100%;
+  }
 
+  .line {
+    white-space: normal;
+    max-width: 100%;
+  }
 
-/* .line elements wrap naturally on mobile */
-#app.mobile .line {
-  white-space: normal;
-  max-width: 100%;
-}
+  .expand-header {
+    white-space: normal;
+    max-width: 100%;
+  }
 
-
-/* Postcard wall: horizontal row 220px tall */
-#app.mobile .pc-wall-col {
-  height: 220px;
-}
-
-/* Expand items work with tap via existing JS click handler */
-#app.mobile .expand-header {
-  white-space: normal;
-  max-width: 100%;
-}
-
-/* All text left aligned, no centering */
-#app.mobile * {
-  text-align: left;
+  * {
+    text-align: left;
+  }
 }

@@ -18,10 +18,7 @@ function checkMobile() {
 }
 
 function updateMobilePadding() {
-  if (isMobile()) {
-    const headerHeight = document.getElementById('app-header').offsetHeight;
-    document.getElementById('app-page').style.paddingTop = headerHeight + 'px';
-  }
+  // no-op: header is in normal document flow on mobile
 }
 
 checkMobile();
@@ -236,7 +233,11 @@ function updateCursor() {
 const sectionsTrack = document.getElementById('sections-track');
 
 function slideTo(idx) {
-  if (!sectionsTrack || isMobile()) return;
+  if (!sectionsTrack) return;
+  if (isMobile()) {
+    sectionsTrack.style.transform = '';
+    return;
+  }
   sectionsTrack.style.transform = 'translateX(' + (-idx * window.innerWidth) + 'px)';
 }
 
@@ -255,7 +256,8 @@ function goToSection(idx) {
   currentSectionIdx = idx;
 
   if (isMobile()) {
-    const target = document.getElementById('sec-0' + idx);
+    const sectionId = 'sec-0' + idx;
+    const target = document.getElementById(sectionId);
     if (target) target.scrollIntoView({ behavior: 'smooth' });
   } else {
     slideTo(idx);
