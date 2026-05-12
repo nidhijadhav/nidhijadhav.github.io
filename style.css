@@ -785,111 +785,143 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
 
 /* ─── MOBILE ─────────────────────────────────────── */
 
-@media (max-width: 780px) {
-  html, body {
+@media only screen and (max-width: 780px) {
+  /* Static background replaces parallax layers */
+  body {
+    background-image: url('img/layer-1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow-x: hidden;
     overflow-y: auto;
     height: auto;
   }
 
-  #app {
-    position: relative;
-    width: 100vw;
-    height: auto;
+  #app.mobile {
+    width: 100%;
     overflow-x: hidden;
+    height: auto;
+    position: relative;
   }
 
-  #cursor { display: none; }
+  #app.mobile #cursor { display: none; }
 
-  #app-header {
-    position: relative;
-    width: 100%;
+  /* Parallax hidden — body background handles it */
+  #app.mobile #app-landscape { display: none; }
+
+  /* Header: relative flow, overrides desktop position: fixed */
+  #app.mobile #app-header {
+    position: relative !important;
+    top: auto !important;
+    display: block;
     height: auto;
     overflow: visible;
     opacity: 1;
     pointer-events: all;
   }
 
-  #header-inner {
+  #app.mobile #header-inner {
     flex-direction: column;
     height: auto;
     white-space: normal;
-    padding: 12px 16px;
+    padding: 16px 12px;
   }
 
-  #header-top {
+  #app.mobile #header-top {
     width: 100%;
-    margin-bottom: 6px;
   }
 
-  #header-nav {
+  #app.mobile #header-nav {
+    flex: 1 1 auto;
     flex-direction: column;
+    flex-wrap: nowrap;
     width: 100%;
-    height: auto;
-    overflow: visible;
-    gap: 0;
-    padding: 0;
+    margin-top: 22px;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
-  #header-nav > div {
-    flex: none;
+  #app.mobile #header-nav > div {
     width: 100%;
-    text-align: left;
-    top: 0 !important;
     position: relative;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: left;
     justify-content: flex-start;
+    align-items: flex-start;
     padding: 2px 0;
   }
 
-  #header-nav > div a {
-    text-align: left;
-  }
+  #app.mobile #header-nav > div a { text-align: left; }
 
-  #app-page {
+  /* Reset nav stagger */
+  #app.mobile #header-nav > div:nth-child(3n+1),
+  #app.mobile #header-nav > div:nth-child(3n+2),
+  #app.mobile #header-nav > div:nth-child(3n+3) { top: 0; }
+
+  /* App page: relative flow */
+  #app.mobile #app-page {
     position: relative;
-    top: auto;
+    top: 0;
     height: auto;
     overflow: visible;
     opacity: 1;
     pointer-events: all;
-    padding: 0;
+    padding: 0 0 40px;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
-  #page-container {
+  #app.mobile #page-container {
+    flex: 1 1 auto;
+    width: 100%;
     height: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
-  #page-top {
+  #app.mobile #page-top {
+    width: 100%;
     padding: 8px 16px;
   }
 
-  #page-content {
+  #app.mobile #page-content {
+    flex-direction: column;
+    width: 100%;
     height: auto;
     overflow: visible;
-    position: relative;
     margin-top: 0;
+    transform: none !important;
   }
 
-  #sections-track {
+  /* Section track: vertical stack, no translate */
+  #app.mobile #sections-track {
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     height: auto;
-    overflow: hidden;
-    position: relative;
-    transform: none;
+    overflow: visible;
+    transform: none !important;
     transition: none;
   }
 
-  .contain {
-    width: 100vw;
-    height: 100vh;
-    flex-shrink: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    position: relative;
+  /* Only the active section is visible on mobile */
+  #app.mobile .contain {
+    display: none;
   }
 
-  .col-row {
+  #app.mobile .contain.active-section {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* Column rows: stack vertically */
+  #app.mobile .col-row {
     flex-direction: column;
     height: auto;
     overflow: visible;
@@ -897,69 +929,32 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
     gap: 0;
   }
 
-  .col {
+  #app.mobile .col {
     width: 100%;
     height: auto;
     overflow: visible;
     flex: none;
-    padding: 0 0 12px 0;
+    padding: 0 0 12px;
     gap: 2px;
   }
 
-  .col-label {
+  #app.mobile .col-label {
     flex: 0 0 100%;
     width: 100%;
     min-width: 0;
   }
 
-  .expand-item {
-    margin-bottom: 2px;
-  }
+  #app.mobile .expand-item { margin-bottom: 2px; }
 
-  #app-landscape {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 99;
-    pointer-events: none;
-    opacity: 1;
-  }
-
-  #parallax {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-  }
-
-  #parallax .layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform: none !important;
-  }
-
-  #quote-ticker {
-    display: none;
-  }
+  #app.mobile #quote-ticker { display: none; }
 
   /* Landing */
-  #landing {
+  #app.mobile #landing {
     overflow-y: auto;
     display: block;
   }
 
-  .land-stamp {
+  #app.mobile .land-stamp {
     position: relative;
     top: auto;
     left: auto;
@@ -967,7 +962,7 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
     padding: 20px 20px 4px;
   }
 
-  .land-avail {
+  #app.mobile .land-avail {
     position: relative;
     top: auto;
     right: auto;
@@ -976,36 +971,36 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
     text-align: left;
   }
 
-  .land-body {
+  #app.mobile .land-body {
     padding: 20px 20px 0;
     align-items: flex-start;
   }
 
-  .land-cols {
+  #app.mobile .land-cols {
     flex-direction: column;
     gap: 20px;
   }
 
-  .land-col-left {
-    max-width: 100%;
-  }
+  #app.mobile .land-col-left { max-width: 100%; }
 
-  .land-name {
+  #app.mobile .land-name {
     font-size: clamp(32px, 10vw, 56px);
     margin-bottom: 16px;
   }
 
-  .land-enter {
+  #app.mobile .land-enter {
     padding: 30px 20px 40px;
     text-align: left;
   }
 
-  /* Captured media: horizontal scroll strip */
-  #sec-04 {
+  /* Captured media: horizontal scroll strip at fixed height */
+  #app.mobile #sec-04 {
+    height: 320px;
+    max-height: 320px;
     overflow: hidden;
   }
 
-  .film-strip {
+  #app.mobile .film-strip {
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -1016,7 +1011,7 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
     -webkit-overflow-scrolling: touch;
   }
 
-  .photo-col {
+  #app.mobile .photo-col {
     flex: 0 0 260px;
     height: 100%;
     flex-direction: row;
@@ -1024,26 +1019,26 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
     overflow: visible;
   }
 
-  .photo-slot {
+  #app.mobile .photo-slot {
     flex: 0 0 260px;
     height: 100%;
     min-height: 0;
   }
 
   /* Postcard section */
-  .postcard-section {
+  #app.mobile .postcard-section {
     flex-direction: column;
     height: auto;
     gap: 20px;
   }
 
-  .pc-builder {
+  #app.mobile .pc-builder {
     flex: none;
     width: 100%;
     height: auto;
   }
 
-  .pc-wall-col {
+  #app.mobile .pc-wall-col {
     flex: none;
     width: 100%;
     height: 220px;
@@ -1056,22 +1051,20 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
     -webkit-overflow-scrolling: touch;
   }
 
-  #postcard-wall {
+  #app.mobile #postcard-wall {
     flex-direction: row;
     height: 100%;
   }
 
-  .line {
+  #app.mobile .line {
     white-space: normal;
     max-width: 100%;
   }
 
-  .expand-header {
+  #app.mobile .expand-header {
     white-space: normal;
     max-width: 100%;
   }
 
-  * {
-    text-align: left;
-  }
+  #app.mobile * { text-align: left; }
 }

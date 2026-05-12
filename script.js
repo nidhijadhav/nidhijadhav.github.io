@@ -7,7 +7,7 @@ function isMobile() {
       ua = true;
     }
   })(navigator.userAgent || navigator.vendor || window.opera);
-  return window.innerWidth <= 780 || ua;
+  return document.documentElement.clientWidth <= 780 || ua;
 }
 
 var appEl = document.getElementById('app');
@@ -84,6 +84,18 @@ const appPage   = document.getElementById('app-page');
 const appLandscape = document.getElementById('app-landscape');
 let portfolioActive = false;
 
+function showMobileSection(idx) {
+  document.querySelectorAll('.contain').forEach(function(el) {
+    el.classList.remove('active-section');
+  });
+  var sectionId = idx < 10 ? 'sec-0' + idx : 'sec-' + idx;
+  var target = document.getElementById(sectionId);
+  if (target) {
+    target.classList.add('active-section');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+}
+
 function enterPortfolio() {
   if (portfolioActive) return;
   portfolioActive = true;
@@ -97,6 +109,7 @@ function enterPortfolio() {
   updateCursor();
   setQuote(0);
   loadPostcards();
+  if (isMobile()) showMobileSection(0);
 }
 
 if (landEnter) {
@@ -256,13 +269,11 @@ function goToSection(idx) {
   currentSectionIdx = idx;
 
   if (isMobile()) {
-    const sectionId = 'sec-0' + idx;
-    const target = document.getElementById(sectionId);
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  } else {
-    slideTo(idx);
-    setParallaxFromSection(idx, sections.length);
+    showMobileSection(idx);
+    return;
   }
+  slideTo(idx);
+  setParallaxFromSection(idx, sections.length);
 
   navItems.forEach(ni => ni.classList.remove('active'));
   const activeNav = document.querySelector('.nav-item[data-idx="' + idx + '"]');
