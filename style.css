@@ -43,7 +43,7 @@ html, body {
 a { color: inherit; text-decoration: underline; }
 a:hover { opacity: 0.7; }
 button { font-family: 'HelveticaNeue', sans-serif; cursor: pointer; border: none; background: none; }
-input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; line-height: 22px; }
+input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
 
 /* ─── CURSOR LINE ──────────────────────────────── */
 #cursor {
@@ -104,7 +104,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
 #header-top {
   width: 240px;
   flex-shrink: 0;
-  font-size: 15px;
   line-height: 22px;
 }
 
@@ -115,7 +114,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
   color: #000;
   padding: 0 3px;
   line-height: 22px;
-  font-size: 15px;
 }
 
 #header-nav {
@@ -139,7 +137,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
 #header-nav > div a {
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
   line-height: 22px;
 }
 
@@ -187,12 +184,31 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
 
 #page-top {
   flex-shrink: 0;
-  padding-left: 16px;
 }
 
-#page-top > div {
+#quote-ticker {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 4px 0;
+}
+
+#quote-track {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.quote-repeat {
   display: inline-block;
   background: #fff;
+  padding: 0 3px;
+  flex-shrink: 0;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(-1 * var(--loop-width, 50%))); }
 }
 
 #page-content {
@@ -221,81 +237,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
 
 .contain::-webkit-scrollbar { display: none; }
 
-/* ─── ENTRY ITEM (CV) ──────────────────────────── */
-.entry-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.entry-header {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  cursor: pointer;
-  user-select: none;
-}
-
-.entry-title {
-  display: inline-block;
-  background: #fff;
-  padding: 0 3px;
-  font-weight: 700;
-  line-height: 26px;
-}
-
-.entry-title::before { content: '+ '; }
-.entry-item.open .entry-title::before { content: '- '; }
-.entry-title:hover { opacity: 0.7; }
-
-.entry-date,
-.entry-tech {
-  display: inline-block;
-  background: #fff;
-  padding: 0 3px;
-  font-size: 13px;
-  line-height: 20px;
-  color: #777;
-  font-weight: 400;
-}
-
-.entry-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-
-.entry-item.open .entry-body { max-height: 300px; }
-
-.entry-body > p {
-  display: inline-block;
-  background: #fff;
-  padding: 0 3px;
-  line-height: 22px;
-  margin-top: 4px;
-}
-
-/* ─── COLUMN SUBHEADING ─────────────────────────── */
-.col-subheading {
-  display: inline-block;
-  background: #fff;
-  padding: 0 3px;
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 22px;
-}
-
-/* ─── PROJECT TECH LINE ─────────────────────────── */
-.proj-tech {
-  display: inline-block;
-  background: #fff;
-  padding: 0 3px;
-  font-size: 12px;
-  line-height: 20px;
-  color: #777;
-  font-weight: 400;
-}
 
 /* ─── CAPTURED MEDIA ───────────────────────────── */
 #sec-04 {
@@ -314,143 +255,112 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
   display: inline-block;
   background: #fff;
   padding: 0 3px;
-  font-size: 15px;
   line-height: 22px;
 }
 
-.film-rows {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.film-row {
-  flex: 1;
-  min-height: 0;
+.film-strip {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: stretch;
-  gap: 6px;
-  padding: 0 16px;
+  height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
+  gap: 6px;
+  padding: 0 16px;
 }
 
-.film-row::-webkit-scrollbar { display: none; }
+.film-strip::-webkit-scrollbar { display: none; }
 
 .photo-col {
-  flex-shrink: 0;
-  width: 160px;
+  flex: 0 0 380px;
   height: 100%;
-  background: #fff;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+  gap: 6px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
-.photo-col.expanded { width: 260px; }
-
-.photo-col-title {
-  flex-shrink: 0;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 19px;
-  padding: 5px 7px 3px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.photo-col-img {
-  flex: 1;
+.photo-slot {
+  flex: 1 1 50%;
   min-height: 0;
-  background: #ccc;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  cursor: pointer;
+  padding: 3px 6px;
+  overflow: hidden;
+  border: none;
+  outline: none;
 }
 
-.photo-col-caption {
-  flex-shrink: 0;
-  font-size: 12px;
-  font-style: italic;
-  line-height: 16px;
-  padding: 0 7px;
+
+.photo-img {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
+  transition: max-height 0.4s ease;
+  background: #e0e0e0;
+  width: 100%;
 }
 
-.photo-col.expanded .photo-col-caption {
-  max-height: 60px;
-  padding: 4px 7px 2px;
-}
-
-.photo-col-date {
-  flex-shrink: 0;
-  font-size: 11px;
-  line-height: 15px;
-  color: #777;
-  font-weight: 400;
-  padding: 0 7px 1px;
-}
-
-.photo-col-tags {
-  flex-shrink: 0;
-  font-size: 10px;
-  line-height: 14px;
-  color: #999;
-  font-weight: 400;
-  padding: 0 7px 3px;
-  white-space: nowrap;
+.photo-meta {
+  max-height: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
+  transition: max-height 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
+
+.photo-slot.open .photo-img {
+  max-height: 300px;
+}
+
+.photo-slot.open .photo-meta {
+  max-height: 80px;
+}
+
 
 /* ─── COLUMN ROW LAYOUT ─────────────────────────── */
 .col-row {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 100%;
   height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0 16px;
+  gap: 40px;
   scrollbar-width: none;
 }
 
 .col-row::-webkit-scrollbar { display: none; }
 
 .col {
-  flex: 0 0 auto;
-  width: 280px;
+  flex: 0 0 380px;
   height: 100%;
-  padding: 0 20px 0 0;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 4px;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
+  padding-bottom: 16px;
 }
 
 .col::-webkit-scrollbar { display: none; }
 
 .col-label {
-  flex: 0 0 auto;
-  width: 180px;
+  flex: 0 0 240px;
+  width: 240px;
+  min-width: 240px;
 }
 
 .col > p {
   display: inline-block;
   background: #fff;
   padding: 0 3px;
-  line-height: 26px;
-  max-width: 100%;
+  line-height: 22px;
 }
 
 .col a {
@@ -464,58 +374,55 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
 .expand-item {
   display: flex;
   flex-direction: column;
-  max-width: 640px;
+  margin-bottom: 6px;
 }
 
 .expand-header {
   display: inline-block;
   background: #fff;
   padding: 0 3px;
-  line-height: 26px;
+  line-height: 22px;
+  font-weight: 700;
   cursor: pointer;
   user-select: none;
-  position: relative;
 }
 
-.expand-header::before {
-  content: '+ ';
-  font-weight: 700;
-}
-
-.expand-item.open .expand-header::before {
-  content: '− ';
-}
-
-.expand-header:hover {
-  opacity: 0.7;
-}
+.expand-header::before { content: '+ '; }
+.expand-item.open .expand-header::before { content: '- '; }
+.expand-header:hover { opacity: 0.7; }
 
 .expand-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.4s ease;
 }
 
-.expand-item.open .expand-body {
-  max-height: 300px;
-}
+.expand-item.open .expand-body { max-height: 400px; }
 
+.expand-body .line,
 .expand-body > p {
   display: inline-block;
   background: #fff;
   padding: 0 3px;
-  line-height: 26px;
-  margin-top: 4px;
-  max-width: 640px;
+  line-height: 22px;
+  margin-top: 3px;
+  max-width: 380px;
 }
 
 /* ─── SHARED UTILITIES ─────────────────────────── */
 .line {
   display: inline-block;
   background: #fff;
+  padding: 0 3px;
+  line-height: 22px;
 }
 
-.fw-bold { font-weight: 700; line-height: 26px; }
+.fw-bold { font-weight: 700; }
+
+.muted {
+  font-weight: 400;
+  font-style: italic;
+}
 
 /* ─── PARALLAX LANDSCAPE ───────────────────────── */
 #app-landscape {
@@ -587,7 +494,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
   position: absolute;
   top: 20px;
   left: 22px;
-  font-size: 15px;
   line-height: 22px;
   font-family: 'HelveticaNeue', sans-serif;
   color: #000;
@@ -646,7 +552,7 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
   letter-spacing: -0.01em;
 }
 
-/* Body text — comfortable reading size */
+/* Body text */
 .land-bio {
   font-family: 'HelveticaNeue', sans-serif;
   font-size: 18px;
@@ -674,7 +580,7 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
 
 .land-col-right a:hover { opacity: 0.55; }
 
-/* Bottom center — plain text, bold, black. Hover → underline or red */
+/* Bottom center — plain text, bold, black */
 .land-enter {
   display: block;
   width: 100%;
@@ -690,13 +596,7 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
   cursor: pointer;
   letter-spacing: 0.04em;
   flex-shrink: 0;
-  transition: color 0.15s ease;
   text-decoration: none;
-}
-
-.land-enter:hover {
-  color: #e8272a;
-  text-decoration: underline;
 }
 
 /* ─── POSTCARD SECTION ─────────────────────────── */
@@ -725,12 +625,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
 
 .pc-builder::-webkit-scrollbar { display: none; }
 
-.pc-builder-header > p {
-  display: inline-block;
-  background: #fff;
-  padding: 0 3px;
-  line-height: 22px;
-}
 
 .pc-toolbar {
   display: flex;
@@ -744,7 +638,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
   display: inline-block;
   background: #fff;
   padding: 0 3px;
-  font-size: 13px;
   font-weight: 700;
   line-height: 26px;
 }
@@ -752,7 +645,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
 .pc-stamp-btn {
   background: #fff;
   border: 1px solid #000;
-  font-size: 14px;
   line-height: 1;
   padding: 4px 9px;
   cursor: pointer;
@@ -787,7 +679,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
   padding: 6px 8px;
   background: #fff;
   font-family: 'HelveticaNeue', sans-serif;
-  font-size: 15px;
   line-height: 22px;
   resize: none;
   width: 240px;
@@ -800,7 +691,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
   color: #fff;
   font-family: 'HelveticaNeue', sans-serif;
   font-weight: 700;
-  font-size: 15px;
   padding: 7px 12px;
   border: none;
   cursor: pointer;
@@ -879,7 +769,6 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
 }
 
 .flip-back-msg {
-  font-size: 12px;
   line-height: 17px;
   color: #000;
   overflow: hidden;
@@ -889,8 +778,291 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; font-size: 15px; lin
 }
 
 .flip-back-from {
-  font-size: 12px;
   font-weight: 700;
   line-height: 17px;
   color: #000;
+}
+
+/* ─── MOBILE ─────────────────────────────────────── */
+
+@media (max-width: 780px) {
+  html, body { overflow: auto; height: auto; }
+}
+
+/* Applied via JS isMobile() — mirrors Rietveld pattern */
+#app.mobile {
+  overflow-y: auto;
+  height: auto;
+  position: relative;
+}
+
+/* Hide cursor line on mobile */
+#app.mobile #cursor { display: none; }
+
+/* Header: fixed at top, full width */
+#app.mobile #app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  height: auto;
+  overflow: visible;
+}
+
+#app.mobile #header-inner {
+  flex-direction: column;
+  height: auto;
+  white-space: normal;
+  padding: 12px 16px 0;
+}
+
+#app.mobile #header-top {
+  width: 100%;
+}
+
+/* Nav: stacked vertically on mobile */
+#app.mobile #header-nav {
+  flex: none;
+  width: 100%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y: visible;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0;
+  padding: 6px 0 10px;
+}
+
+#app.mobile #header-nav > div {
+  flex: 0 0 auto;
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+  padding: 1px 0;
+}
+
+#app.mobile #header-nav > div a {
+  text-align: left;
+}
+
+/* Remove stagger on mobile */
+#app.mobile #header-nav > div:nth-child(3n+1),
+#app.mobile #header-nav > div:nth-child(3n+2),
+#app.mobile #header-nav > div:nth-child(3n+3) {
+  top: 0;
+}
+
+/* Page: normal document flow */
+#app.mobile #app-page {
+  position: relative;
+  top: 0;
+  height: auto;
+  overflow: visible;
+  padding-top: 0;
+}
+
+#app.mobile #page-container {
+  height: auto;
+}
+
+#app.mobile #page-top {
+  display: none;
+}
+
+#app.mobile #page-content {
+  overflow: visible;
+  height: auto;
+}
+
+/* Section track: vertical stack, natural scroll */
+#app.mobile #sections-track {
+  flex-direction: column;
+  height: auto;
+  transform: none !important;
+  transition: none;
+  overflow: visible;
+}
+
+/* Sections: auto height, full width */
+#app.mobile .contain {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  margin-bottom: 0;
+}
+
+/* Column rows: stack vertically */
+#app.mobile .col-row {
+  flex-direction: column;
+  height: auto;
+  overflow: visible;
+  gap: 0;
+  padding: 0 16px;
+}
+
+#app.mobile .col {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  gap: 2px;
+  padding-bottom: 12px;
+}
+
+#app.mobile .expand-item {
+  margin-bottom: 2px;
+}
+
+#app.mobile .col-label {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Landing: single column, left aligned */
+#app.mobile #landing {
+  overflow-y: auto;
+  display: block;
+}
+
+#app.mobile .land-stamp {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: block;
+  padding: 20px 20px 4px;
+}
+
+#app.mobile .land-avail {
+  position: relative;
+  top: auto;
+  right: auto;
+  display: block;
+  padding: 0 20px 20px;
+  text-align: left;
+}
+
+#app.mobile .land-body {
+  padding: 20px 20px 0;
+  align-items: flex-start;
+}
+
+#app.mobile .land-cols {
+  flex-direction: column;
+  gap: 20px;
+}
+
+#app.mobile .land-col-left {
+  max-width: 100%;
+}
+
+#app.mobile .land-name {
+  font-size: clamp(32px, 10vw, 56px);
+  margin-bottom: 16px;
+}
+
+#app.mobile .land-enter {
+  padding: 30px 20px 40px;
+  text-align: left;
+}
+
+/* Captured media: horizontal scroll strip */
+#app.mobile #sec-04 {
+  height: 320px;
+  overflow: hidden;
+}
+
+#app.mobile .film-strip {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
+  gap: 6px;
+  padding: 0 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+#app.mobile .photo-col {
+  flex: 0 0 260px;
+  height: 100%;
+  flex-direction: row;
+  gap: 6px;
+  overflow: visible;
+}
+
+#app.mobile .photo-slot {
+  flex: 0 0 260px;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Postcard section: stack vertically on mobile */
+#app.mobile #sec-07 {
+  overflow: visible;
+}
+
+#app.mobile .postcard-section {
+  flex-direction: column;
+  height: auto;
+  gap: 20px;
+}
+
+#app.mobile .pc-builder {
+  flex: none;
+  width: 100%;
+  height: auto;
+}
+
+#app.mobile .pc-wall-col {
+  flex: none;
+  width: 100%;
+  height: 260px;
+  border-left: none;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  padding-left: 0;
+  padding-top: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#app.mobile #postcard-wall {
+  flex-direction: row;
+  height: 100%;
+}
+
+/* Touch scrolling on all scroll containers */
+#app.mobile .col-row,
+#app.mobile #header-nav,
+#app.mobile .film-strip,
+#app.mobile .pc-wall-col {
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+/* .line elements wrap naturally on mobile */
+#app.mobile .line {
+  white-space: normal;
+  max-width: 100%;
+}
+
+
+/* Postcard wall: horizontal row 220px tall */
+#app.mobile .pc-wall-col {
+  height: 220px;
+}
+
+/* Expand items work with tap via existing JS click handler */
+#app.mobile .expand-header {
+  white-space: normal;
+  max-width: 100%;
+}
+
+/* All text left aligned, no centering */
+#app.mobile * {
+  text-align: left;
 }

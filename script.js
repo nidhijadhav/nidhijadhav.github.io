@@ -1,3 +1,32 @@
+/* ─── MOBILE DETECTION (Rietveld pattern) ──────── */
+function isMobile() {
+  var ua = false;
+  (function(e) {
+    if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(e) ||
+        /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(e.substr(0, 4))) {
+      ua = true;
+    }
+  })(navigator.userAgent || navigator.vendor || window.opera);
+  return window.innerWidth <= 780 || ua;
+}
+
+var appEl = document.getElementById('app');
+
+function checkMobile() {
+  var mobile = isMobile();
+  appEl.classList.toggle('mobile', mobile);
+}
+
+function updateMobilePadding() {
+  if (isMobile()) {
+    const headerHeight = document.getElementById('app-header').offsetHeight;
+    document.getElementById('app-page').style.paddingTop = headerHeight + 'px';
+  }
+}
+
+checkMobile();
+updateMobilePadding();
+
 /* ─── SUPABASE CONFIG ─────────────────────────── */
 let activeStamps = [];
 const SUPABASE_URL = 'https://wxhiaxogrjphhhuzawjz.supabase.co';
@@ -22,53 +51,34 @@ if (loadDtEl) {
 }
 
 /* ─── NAME ELEMENT (used by color snap) ──────── */
-const nameEl = document.getElementById('land-name');
 
-/* ─── COLOR SNAP (hard zone, no lerp) ────────── */
-/* Colors: red #e8272a, blue #1a5cff, green #1db34a */
+/* ─── LANDING COLOR CONSTANTS ─────────────────── */
 const RED   = '#e8272a';
 const BLUE  = '#1a5cff';
 const GREEN = '#1db34a';
 
-let currentColor = '#000';
-let mouseMoved = false;
 let rafId = null;
-let mouseNX = 0.5;
-let mouseNY = 0.5;
-
-function snapColor(nx, ny) {
-  if (ny > 0.67) return GREEN;
-  if (nx < 0.5)  return BLUE;
-  return RED;
-}
-
-function colorLoop() {
-  const c = mouseMoved ? snapColor(mouseNX, mouseNY) : '#000';
-  if (c !== currentColor) {
-    currentColor = c;
-    if (nameEl) nameEl.style.color = c;
-    const availEl = document.getElementById('land-avail');
-    if (availEl) availEl.style.color = c;
-  }
-  rafId = requestAnimationFrame(colorLoop);
-}
 
 const landing = document.getElementById('landing');
-if (landing) {
-  landing.addEventListener('mousemove', (e) => {
-    mouseMoved = true;
-    const rect = landing.getBoundingClientRect();
-    mouseNX = (e.clientX - rect.left) / rect.width;
-    mouseNY = (e.clientY - rect.top) / rect.height;
-  });
-  landing.addEventListener('mouseleave', () => {
-    mouseMoved = false;
-    mouseNX = 0.5;
-    mouseNY = 0.0;
-  });
+
+/* ─── ENTER BUTTON FLASH ──────────────────────── */
+const flashColors = ['#e8272a', '#1a5cff', '#1db34a'];
+let flashInterval = null;
+let flashIdx = 0;
+
+function startFlash() {
+  if (flashInterval) return;
+  flashInterval = setInterval(() => {
+    flashIdx = (flashIdx + 1) % flashColors.length;
+    if (landing) landing.style.backgroundColor = flashColors[flashIdx];
+  }, 120);
 }
 
-rafId = requestAnimationFrame(colorLoop);
+function stopFlash() {
+  clearInterval(flashInterval);
+  flashInterval = null;
+  if (landing) landing.style.backgroundColor = '#ffffff';
+}
 
 /* ─── STATE TRANSITION: LANDING → PORTFOLIO ─── */
 const landEnter = document.getElementById('land-enter');
@@ -88,11 +98,17 @@ function enterPortfolio() {
   cancelAnimationFrame(rafId);
   initParallax();
   updateCursor();
+  setQuote(0);
   loadPostcards();
 }
 
 if (landEnter) {
   landEnter.addEventListener('click', enterPortfolio);
+  landEnter.addEventListener('mouseenter', startFlash);
+  landEnter.addEventListener('mouseleave', stopFlash);
+  landEnter.addEventListener('touchstart', startFlash, { passive: true });
+  landEnter.addEventListener('touchend', stopFlash);
+  landEnter.addEventListener('touchcancel', stopFlash);
 }
 
 /* ─── PARALLAX ────────────────────────────────── */
@@ -131,9 +147,9 @@ function setParallaxFromSection(sectionIdx, totalSections) {
   parallaxX = scrollFrac * maxTravel;
 }
 
-/* Single RAF loop — background layers only, content never touched */
+/* Single RAF loop — background layers only, content never touched, skipped on mobile */
 (function bgParallaxLoop() {
-  if (portfolioActive) {
+  if (portfolioActive && !isMobile()) {
     const dx = mouseRawX - window.innerWidth  / 2;
     const dy = mouseRawY - window.innerHeight / 2;
     layers.forEach(function(el, i) {
@@ -150,22 +166,60 @@ function setParallaxFromSection(sectionIdx, totalSections) {
 /* ─── NAV & SECTION SCROLL ────────────────────── */
 const pageContent = document.getElementById('page-content');
 const navItems = document.querySelectorAll('.nav-item');
-const pageSectionLabel = document.getElementById('page-section-label');
 const cursor = document.getElementById('cursor');
 
 const NAV_QUOTES = [
-  '"You are the master of your fate, the captain of your soul — but life is coming from you, not at you." - Invictus',
-  '"We are the sum of all the moments of our lives." — Thomas Wolfe',
-  '"The object of art is to give life a shape." — William Shakespeare',
-  '"A writer only begins a book. A reader finishes it." — Samuel Johnson',
-  '"To photograph is to appropriate the thing photographed." — Susan Sontag',
+  '"I am the master of my fate, I am the captain of my soul." — Invictus',
+  'Let the beauty of what you love be what you do." — Rumi',
+  'Every act of creation is first an act of destruction." — Picasso',
+  '"Words are loaded pistols." — Jean-Paul Sartre',
+  '"In the struggle between yourself and the world, back the world." — Franz Kafka',
   '"Without music, life would be a mistake." — Nietzsche',
-  '"Travel changes you. As you move through this life and this world you change things slightly, you leave marks behind." — Anthony Bourdain',
-  '"I am still here."',
+  '"I understood that the world is not a problem to be solved but an adventure to be had." — Anthony Bourdain',
+  '"Life is coming from you, not at you.',
   ''
 ];
 
 let currentSectionIdx = 0;
+
+function setQuote(idx) {
+  const text = NAV_QUOTES[idx] || '';
+  const track = document.getElementById('quote-track');
+  if (!track) return;
+
+  const separator = ' · ';
+  const unit = text + separator;
+
+  // Measure single unit width
+  const tempSpan = document.createElement('span');
+  tempSpan.style.cssText = 'visibility:hidden;position:absolute;white-space:nowrap;';
+  tempSpan.textContent = unit;
+  document.body.appendChild(tempSpan);
+  const unitWidth = tempSpan.offsetWidth;
+  document.body.removeChild(tempSpan);
+
+  if (unitWidth === 0) return;
+
+  // Enough repeats to fill 200% of viewport width
+  const repeats = Math.ceil((window.innerWidth * 2) / unitWidth) + 2;
+
+  // Double for seamless loop
+  let html = '';
+  for (let i = 0; i < repeats * 2; i++) {
+    html += `<span class="quote-repeat">${unit}</span>`;
+  }
+  track.innerHTML = html;
+
+  // Set loop width (first half of the track)
+  const loopWidth = unitWidth * repeats;
+  track.style.setProperty('--loop-width', loopWidth + 'px');
+
+  // Restart animation
+  track.style.animation = 'none';
+  track.offsetHeight; // force reflow
+  const duration = Math.max(12, loopWidth / 80);
+  track.style.animation = `ticker ${duration}s linear infinite`;
+}
 
 function getNavItemLeft(item) {
   const rect = item.getBoundingClientRect();
@@ -182,7 +236,7 @@ function updateCursor() {
 const sectionsTrack = document.getElementById('sections-track');
 
 function slideTo(idx) {
-  if (!sectionsTrack) return;
+  if (!sectionsTrack || isMobile()) return;
   sectionsTrack.style.transform = 'translateX(' + (-idx * window.innerWidth) + 'px)';
 }
 
@@ -195,23 +249,27 @@ function goToSection(idx) {
     appPage.classList.remove('visible');
     appLandscape.classList.remove('visible');
     if (cursor) cursor.classList.remove('visible');
-    rafId = requestAnimationFrame(colorLoop);
     return;
   }
   if (idx < 0 || idx >= sections.length) return;
   currentSectionIdx = idx;
 
-  slideTo(idx);
+  if (isMobile()) {
+    const target = document.getElementById('sec-0' + idx);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    slideTo(idx);
+    setParallaxFromSection(idx, sections.length);
+  }
 
   navItems.forEach(ni => ni.classList.remove('active'));
   const activeNav = document.querySelector('.nav-item[data-idx="' + idx + '"]');
   if (activeNav) {
     activeNav.classList.add('active');
-    updateCursor();
+    if (!isMobile()) updateCursor();
   }
 
-  if (pageSectionLabel) pageSectionLabel.textContent = NAV_QUOTES[idx] || '00';
-  setParallaxFromSection(idx, sections.length);
+  setQuote(idx);
 }
 
 navItems.forEach(item => {
@@ -229,8 +287,10 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft')  goToSection(currentSectionIdx - 1);
 });
 
-/* Re-snap on resize so the visible section stays aligned */
+/* Re-snap on resize; recheck mobile on every resize */
 window.addEventListener('resize', () => {
+  checkMobile();
+  updateMobilePadding();
   if (portfolioActive) slideTo(currentSectionIdx);
 });
 
@@ -436,31 +496,14 @@ document.querySelectorAll('.pc-stamp-btn').forEach(function(btn) {
   });
 });
 
-/* ─── FILM ROW LINKED SCROLL ──────────────────── */
-const filmRow1 = document.getElementById('film-row-1');
-const filmRow2 = document.getElementById('film-row-2');
-if (filmRow1 && filmRow2) {
-  var _syncScroll = false;
-  filmRow1.addEventListener('scroll', function() {
-    if (_syncScroll) return;
-    _syncScroll = true;
-    filmRow2.scrollLeft = filmRow1.scrollLeft;
-    _syncScroll = false;
-  });
-  filmRow2.addEventListener('scroll', function() {
-    if (_syncScroll) return;
-    _syncScroll = true;
-    filmRow1.scrollLeft = filmRow2.scrollLeft;
-    _syncScroll = false;
-  });
-}
 
-/* ─── PHOTO COLUMN EXPAND ─────────────────────── */
-document.querySelectorAll('.photo-col').forEach(function(col) {
-  col.addEventListener('click', function() {
-    var wasOpen = col.classList.contains('expanded');
-    document.querySelectorAll('.photo-col.expanded').forEach(function(el) { el.classList.remove('expanded'); });
-    if (!wasOpen) col.classList.add('expanded');
+/* ─── PHOTO SLOT EXPAND ───────────────────────── */
+document.querySelectorAll('.photo-slot').forEach(function(slot) {
+  slot.addEventListener('click', function() {
+    var col = slot.closest('.photo-col');
+    var wasOpen = slot.classList.contains('open');
+    col.querySelectorAll('.photo-slot.open').forEach(function(el) { el.classList.remove('open'); });
+    if (!wasOpen) slot.classList.add('open');
   });
 });
 
