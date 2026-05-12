@@ -102,14 +102,19 @@ function enterPortfolio() {
   landing.classList.add('hidden');
   appHeader.classList.add('visible');
   appPage.classList.add('visible');
-  appLandscape.classList.add('visible');
-  if (cursor) cursor.classList.add('visible');
-  cancelAnimationFrame(rafId);
-  initParallax();
-  updateCursor();
+  if (!isMobile()) {
+    appLandscape.classList.add('visible');
+    if (cursor) cursor.classList.add('visible');
+    initParallax();
+    updateCursor();
+  } else {
+    document.documentElement.style.cssText = 'overflow-y:auto;overflow-x:hidden;height:auto;';
+    document.body.style.cssText = 'overflow-y:auto;overflow-x:hidden;height:auto;';
+    showMobileSection(0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
   setQuote(0);
   loadPostcards();
-  if (isMobile()) showMobileSection(0);
 }
 
 if (landEnter) {

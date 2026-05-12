@@ -786,15 +786,20 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
 /* ─── MOBILE ─────────────────────────────────────── */
 
 @media only screen and (max-width: 780px) {
-  /* Static background replaces parallax layers */
+  html {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+  }
+
   body {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
     background-image: url('img/layer-1.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: auto;
   }
 
   #app.mobile {
@@ -859,25 +864,28 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
   #app.mobile #header-nav > div:nth-child(3n+2),
   #app.mobile #header-nav > div:nth-child(3n+3) { top: 0; }
 
-  /* App page: relative flow */
+  /* All parent containers: natural flow so document scrolls freely */
+  #app.mobile #app-page,
+  #app.mobile #page-container,
+  #app.mobile #page-content,
+  #app.mobile #sections-track {
+    height: auto !important;
+    overflow: visible !important;
+    position: relative !important;
+  }
+
   #app.mobile #app-page {
-    position: relative;
-    top: 0;
-    height: auto;
-    overflow: visible;
     opacity: 1;
     pointer-events: all;
     padding: 0 0 40px;
     flex-direction: column;
     width: 100%;
-    justify-content: flex-start;
-    align-items: flex-start;
+    top: 0 !important;
   }
 
   #app.mobile #page-container {
     flex: 1 1 auto;
     width: 100%;
-    height: auto;
     justify-content: flex-start;
     align-items: flex-start;
   }
@@ -890,18 +898,13 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
   #app.mobile #page-content {
     flex-direction: column;
     width: 100%;
-    height: auto;
-    overflow: visible;
     margin-top: 0;
     transform: none !important;
   }
 
-  /* Section track: vertical stack, no translate */
   #app.mobile #sections-track {
     flex-direction: column;
     width: 100%;
-    height: auto;
-    overflow: visible;
     transform: none !important;
     transition: none;
   }
@@ -915,9 +918,7 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
     display: block;
     width: 100%;
     height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: visible;
   }
 
   /* Column rows: stack vertically */
