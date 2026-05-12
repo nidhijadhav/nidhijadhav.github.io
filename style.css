@@ -796,10 +796,15 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
     overflow-y: auto !important;
     overflow-x: hidden !important;
     height: auto !important;
-    background-image: url('img/layer-1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-image:
+      url('img/layer-4.png'),
+      url('img/layer-3.png'),
+      url('img/layer-2.png'),
+      url('img/layer-1.png');
+    background-size: auto 100vh, auto 100vh, auto 100vh, cover;
+    background-repeat: repeat-x, repeat-x, repeat-x, no-repeat;
+    background-attachment: fixed, fixed, fixed, fixed;
+    background-position: 0% center, 0% center, 0% center, 0% center;
   }
 
   #app.mobile {
@@ -917,6 +922,7 @@ input, textarea { font-family: 'HelveticaNeue', sans-serif; line-height: 22px; }
   #app.mobile .contain.active-section {
     display: block;
     width: 100%;
+    min-height: 100vh;
     height: auto;
     overflow: visible;
   }

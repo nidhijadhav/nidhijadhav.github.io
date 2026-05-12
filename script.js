@@ -84,6 +84,19 @@ const appPage   = document.getElementById('app-page');
 const appLandscape = document.getElementById('app-landscape');
 let portfolioActive = false;
 
+function updateMobileBackground(idx) {
+  if (!isMobile()) return;
+  const totalSections = document.querySelectorAll('.contain').length;
+  const frac = idx / Math.max(totalSections - 1, 1);
+
+  const p1 = (frac * 100 * 1.0).toFixed(1) + '% center';
+  const p2 = (frac * 100 * 1.2).toFixed(1) + '% center';
+  const p3 = (frac * 100 * 1.4).toFixed(1) + '% center';
+  const p4 = (frac * 100 * 1.6).toFixed(1) + '% center';
+
+  document.body.style.backgroundPosition = `${p4}, ${p3}, ${p2}, ${p1}`;
+}
+
 function showMobileSection(idx) {
   document.querySelectorAll('.contain').forEach(function(el) {
     el.classList.remove('active-section');
@@ -94,6 +107,7 @@ function showMobileSection(idx) {
     target.classList.add('active-section');
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
+  updateMobileBackground(idx);
 }
 
 function enterPortfolio() {
